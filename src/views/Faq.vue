@@ -15,6 +15,10 @@ var faqs:any = [
         answer: "xthedrew: Ex-the-drew<br>LayreBoi: La-ih-reh-boy"
     },
     {
+        question: "How should I call you?",
+        answer: "You can call me Layre."
+    },
+    {
         question: "What are your goals as xthedrew?",
         answer: "My goal is to get my dream job as a part of IT, like software/game developing and website developing."
     },
