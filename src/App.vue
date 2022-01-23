@@ -19,7 +19,7 @@ const lightcol = {
     logo: config.logo.black
 }
 const darkcol = {
-    colorfg: '#121212',
+    colorfg: '#222222',
     colorbg: 'black',
     colortx: 'white',
     logo: config.logo.white
@@ -60,7 +60,7 @@ function changecolormode() {
 // Update the CSS text in the #app element
 function loadTheme(): string {
   var curcol = localStorage.getItem('thememode');
-  let currentcol = lightcol;
+  let currentcol = lightcol;0
   if (curcol == 'dark') {
     currentcol = darkcol;
   }
@@ -73,6 +73,10 @@ function loadTheme(): string {
 }
 
 if (app) app.style.cssText = loadTheme();
+
+// Notice users opening devtools
+console.log(`%c Yo, hold up!`, 'font-size: 32px; font-weight: bolder; color: #ff3392');
+console.log(`%cWhat's up, curious developer? I've noticed you've opened the developer tools. If you're curious how this website is made, you can check out in my open-source repository at https://github.com/layreboi/xthedrew-website`, 'color: #171717');
 </script>
 
 <template>
