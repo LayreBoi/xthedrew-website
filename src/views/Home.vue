@@ -33,7 +33,7 @@ updateBanner();
 <template>
     <div> <!-- To avoid problems with transitions -->
         <div class="spacer" v-if="vertical"></div>
-        <div class="bannerdiv"><img class="banner" src="https://cdn.discordapp.com/attachments/887007337284526110/893925197231583295/Untitled116.jpg" alt="xthedrew logo"></div>
+        <div class="bannerdiv"><img class="banner" src="https://media.discordapp.net/attachments/887007337284526110/893925197231583295/Untitled116.jpg" alt="xthedrew logo"></div>
         <h1 class="mulish">Welcome!</h1>
         <span>Hi, I'm xthedrew, a young guy who does programming! I develop frontend applications with Vue and Angular, backend applications, discord bots with discordjs, and a mod for the popular open-source rhythm game.<br>Thank you for visiting my website. If you'd like to know more about me, you can check out the FAQ page. &lt;3</span>
     </div>
