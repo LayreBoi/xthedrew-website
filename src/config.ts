@@ -29,5 +29,12 @@ export const projectlist:PJLIST[] = [
         cover: `https://media.discordapp.net/attachments/887007337284526110/896024167827271760/Untitled108_20210924014714.png?width=400&height=400`,
         lang: `hx`,
         link: 'https://gamejolt.com/games/gemashy/647186'
+    },
+    {
+        name: `LayreBoi Next`,
+        type: `Website`,
+        cover: `https://media.discordapp.net/attachments/833015294313496616/943253434952482867/Untitled171_20220215221041.png?width=400&height=400`,
+        lang: `vue-ts`,
+        link: 'https://next.layreboi.me'
     }
 ]

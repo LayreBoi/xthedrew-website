@@ -56,7 +56,7 @@ export default {
     <div> <!-- To avoid problems with transitions -->
         <h3>Biography</h3>
         <div class="field">
-            xthedrew (or xtdrew) is a young programmer from Austria, developing websites and games. He also known as a music artist called LayreBoi.
+            xthedrew (or xtdrew) is a young programmer from Austria, developing websites and games. He developed several web applications and discord bots such as Amih1ri, Lillie, Amber and Kazane. He also known as a music artist called LayreBoi.
         </div>
         <div class="spacer-small"></div>
         <h3>Contact</h3>
@@ -66,7 +66,7 @@ export default {
         </div>
         <div class="spacer-small"></div>
         <h3>Socials</h3>
-        The socials are in the <a href="https://layreboi.me/about">LayreBoi</a> website.
+        The socials are in the <a href="https://next.layreboi.me/about">LayreBoi Next</a> website. <!-- NEXT mode -->
         <div class="spacer-small"></div>
         <div class="discordfield" v-if="!loadError">
             <h3>{{ discoData.name }}</h3>

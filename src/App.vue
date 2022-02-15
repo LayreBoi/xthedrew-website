@@ -97,7 +97,7 @@ console.log(`%cWhat's up, curious developer? I've noticed you've opened the deve
           </transition>
         </router-view>
     </div>
-    <span class="copyright">&copy; 2022 xtdrew</span>
+    <!-- <span class="copyright">&copy; 2022 xtdrew</span> -->
   </div>
 </template>
 
