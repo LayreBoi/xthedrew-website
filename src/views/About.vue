@@ -66,7 +66,7 @@ export default {
         </div>
         <div class="spacer-small"></div>
         <h3>Socials</h3>
-        The socials are in the <a href="https://next.layreboi.me/about">LayreBoi Next</a> website. <!-- NEXT mode -->
+        The socials are in the <a href="https://next.layreboi.me/">LayreBoi Next</a> website. <!-- NEXT mode -->
         <div class="spacer-small"></div>
         <div class="discordfield" v-if="!loadError">
             <h3>{{ discoData.name }}</h3>
