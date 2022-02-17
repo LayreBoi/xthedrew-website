@@ -35,7 +35,7 @@ var faqs:any = [
         answer: "I own two computers, but I'll show the specs of my main PC:<br><br>"+
                 "CPU: Intel Core i5-2320<br>"+
                 "MBO: Medion MS-7728 v2.0<br>"+
-                "RAM: 8 GB DDR3 DIMM<br>"+
+                "RAM: 16 GB DDR3 DIMM<br>"+
                 "GPU: MSI GeForce GTX 960 4G<br>"+
                 "PSU: 400W (idk the brand)<br>"+
                 "OS: Windows Pro Edition<br>"+
