@@ -6,7 +6,7 @@ import About from '../views/About.vue';
 import Projects from '../views/Projects.vue';
 
 // Website title
-var webtitle:string = 'xthedrew - ';
+var webtitle:string = 'xtdrew - ';
 
 // Paths
 const routes:RouteRecordRaw[] = [

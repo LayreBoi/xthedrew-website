@@ -60,7 +60,7 @@ function changecolormode() {
 // Update the CSS text in the #app element
 function loadTheme(): string {
   var curcol = localStorage.getItem('thememode');
-  let currentcol = lightcol;0
+  let currentcol = lightcol;
   if (curcol == 'dark') {
     currentcol = darkcol;
   }
@@ -68,8 +68,9 @@ function loadTheme(): string {
   return  `--color-bg: ${currentcol.colorbg};`+
           `--color-fg: ${currentcol.colorfg};`+
           `--color-tx: ${currentcol.colortx};`+
-          `--xtdrew-lg: url('${currentcol.logo}');`+
-          `--vertmode: ${vertical ? '95' : '80'}%;`
+          // `--xtdrew-lg: url('${currentcol.logo}');`+
+          // `--maxdevwidth: ${config.maxwidth};`+
+          `--invert-xtd: invert(${darkmode ? 1 : 0});`
 }
 
 if (app) app.style.cssText = loadTheme();
@@ -83,7 +84,9 @@ console.log(`%cWhat's up, curious developer? I've noticed you've opened the deve
   <div class="container">
     <button v-on:click="changecolormode()" class="tmc" v-html="darkmode ? 'L' : 'D'"></button>
     <header>
-      <router-link to="/" class="navLinks"><div class="logo"></div></router-link>
+      <router-link to="/" class="navLinks">
+        <svg class="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="316" height="208" viewBox="0 0 316 208"><defs><clipPath id="b"><rect width="316" height="208"/></clipPath></defs><g id="a" clip-path="url(#b)"><path d="M209.489,131.094V18.466h-23.1V131.094H165.352V18.466H144.708l-21.1,47.081,26.285,58.647,3.092,6.872h-.013l.013.028H0l.013-.028H0L29.364,65.547,0,.028H.013L0,0H246.078q70.085,0,70.085,63.9,0,30.351-19.444,48.771t-52.143,18.421Zm20.946-18.375h16.792q22.183,0,34.511-12.615T294.068,64.45q0-45.984-46.045-45.984H230.435v94.253ZM62.517,58.984l2,4.384v4.358l-2.061,4.52L44.441,111.988H108.53L88.467,67.726V63.368L108.53,19.106H44.441Z" transform="translate(0 38.453)" fill="#000"/></g></svg>
+      </router-link>
       <nav>
         <router-link to="/projects" class="navLinks"><div class="navItem">Projects</div></router-link>
         <router-link to="/faq" class="navLinks"><div class="navItem">FAQ</div></router-link>
@@ -102,8 +105,6 @@ console.log(`%cWhat's up, curious developer? I've noticed you've opened the deve
 </template>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Mulish&family=Shippori+Antique&display=swap');
-
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.2s ease-out;
@@ -133,7 +134,6 @@ body::-webkit-scrollbar-thumb {
 body, #app {
   margin: 0;
 
-  font-family: 'Shippori Antique', Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -166,6 +166,13 @@ body, #app {
   height: 35px;
 }
 
+@media only screen and (max-device-width: 800px) {
+  .spacer-mobile {
+    width: 100%;
+    height: 35px;
+  }
+}
+
 .copyright {
   position: fixed;
   text-align: right;
@@ -188,7 +195,10 @@ body, #app {
     top: 110px;
     left: 50%;
     transform: translateX(-50%);
-    width: var(--vertmode);
+    width: 80%;
+    @media only screen and (max-device-width: 800px) {
+      width: 95%;
+    }
     display: flex;
     flex-direction: column;
     // justify-content: center;
@@ -227,7 +237,10 @@ body, #app {
   header {
     display: flex;
     align-items: center;
-    width: var(--vertmode);
+    width: 80%;
+    @media only screen and (max-device-width: 800px) {
+      width: 95%;
+    }
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
@@ -254,11 +267,14 @@ body, #app {
           border-radius: 4.5px;
           -webkit-tap-highlight-color: transparent;
         }
-        .navItem:hover {
-          transition: var(--transition-mode);
-          transform: scale(1.1);
-          background-color: var(--color-fg);
-          // box-shadow: 0px 2px 2px #22222222;
+       
+        @media (hover: hover) and (pointer: fine) {
+          .navItem:hover {
+            transition: var(--transition-mode);
+            transform: scale(1.1);
+            background-color: var(--color-fg);
+            // box-shadow: 0px 2px 2px #22222222;
+          }
         }
         .navItem:active {
           transition: var(--transition-mode);
@@ -267,22 +283,25 @@ body, #app {
       }
     }
     .logo {
-      background-image: var(--xtdrew-lg);
+      // background-image: var(--xtdrew-lg);
       width: 51.39px;
       height: 60px;
       background-size: cover;
       transition: var(--transition-mode);
       -webkit-tap-highlight-color: transparent;
-      transform: scale(0.8);
+      transform: scale(1.0);
+      filter: var(--invert-xtd);
     }
-    .logo:hover {
-      transform: scale(0.85);
-      transition: var(--transition-mode);
-      cursor: pointer;
+    @media (hover: hover) and (pointer: fine) {
+      .logo:hover {
+        transform: scale(1.05);
+        transition: var(--transition-mode);
+        cursor: pointer;
+      }
     }
     .logo:active {
       transition: var(--transition-mode);
-      transform: scale(0.9);
+      transform: scale(1.1);
     }
   }
 }
