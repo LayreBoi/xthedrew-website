@@ -11,11 +11,13 @@ const proj:any[] = projectlist;
                 <p>Select projects of mine:</p>
             </div>
         </div>
-        <div class="pjlistovfl">
-            <div class="projectlist">
-                <div class="projectitem" v-for="pj of proj" :key="pj">
-                    <a :href="pj.link" target="_blank" style="text-decoration: none"><div class="projectcover" :style="`background: url(${pj.cover});background-size: cover`"><div class="pjtext">{{ pj.name }}</div></div></a>
-                </div>
+        <div class="projectlist">
+            <div class="projectitem" v-for="pj of proj" :key="pj">
+                <a :href="pj.link" target="_blank" style="text-decoration: none">
+                    <div class="projectcover" :style="`background: url(${pj.cover});background-size: cover`">
+                        <div class="pjtext">{{ pj.name }}</div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
@@ -55,41 +57,42 @@ div {
             }
         }
     }
-    .pjlistovfl {
+    .projectlist {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: space-around;
         // overflow: hidden;
-        border-radius: 9px;
-        .projectlist {
-            display: flex;
-            gap: 10px;
-            // overflow: hidden;
 
-            animation-name: onOpening003;
-            animation-duration: 0.75s;
-            animation-timing-function: ease-in-out;
-            animation-delay: 0.25s;
-            animation-iteration-count: 1;
-            animation-fill-mode: both;
+        text-align: center;
 
-            transform: translateY(100%);
-            opacity: 0;
-            .projectitem {
-                .projectcover {
-                    width: 200px;
-                    height: 200px;
-                    .pjtext {
-                        border-radius: 9px;
-                        backdrop-filter: blur(10px);
-                    }
-                }
+        animation-name: onOpening003;
+        animation-duration: 0.75s;
+        animation-timing-function: ease-in-out;
+        animation-delay: 0.25s;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+
+        transform: translateY(100%);
+        opacity: 0;
+        .projectitem {
+            .projectcover {
                 width: 200px;
                 height: 200px;
-                border-radius: 9px;
-                overflow: hidden;
-                text-decoration: none;
+                .pjtext {
+                    border-radius: 9px;
+                    backdrop-filter: blur(10px);
+                    width: 100%;
+                }
             }
-            .projectitem:hover {
-                transform: scale(1.05);
-            }
+            width: 200px;
+            height: 200px;
+            border-radius: 9px;
+            overflow: hidden;
+            text-decoration: none;
+        }
+        .projectitem:hover {
+            transform: scale(1.05);
         }
     }
 }

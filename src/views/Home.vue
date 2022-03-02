@@ -36,6 +36,7 @@ var devwidth:number = window.innerWidth;
         <div class="bannerdiv"><img class="banner" src="https://media.discordapp.net/attachments/887007337284526110/948251749381177374/xtdrew-xyz_SHIT.png?width=2600&height=800" alt="xthedrew logo"></div>
         <div class="fuckOverflow"><div class="bananana"><h1 class="mulish">Welcome</h1></div></div>
         <div class="homedesc"><span><div class="appeartext">Hi, I'm xtdrew, a young guy who does programming! I develop frontend applications with Vue and Angular, backend applications, discord bots with discordjs, and a mod for the popular open-source rhythm game.<br>Thank you for visiting my website. If you'd like to know more about me, you can check out the FAQ page. &lt;3</div></span></div>
+        <div class="spacer-mobile"></div><div class="spacer-mobile"></div>
     </div>
 </template>
 

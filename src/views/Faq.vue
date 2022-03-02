@@ -112,6 +112,8 @@ var faqs:any = [
         border-right: none;
         white-space: nowrap;
         width: 0%;
+
+        font-size: 25px;
     }
 }
 
@@ -128,21 +130,78 @@ var faqs:any = [
         margin-right: -40px;
     }
     90% {
-        width: 470px;
+        width: 355px;
         border-right: 5px solid #ff3392;
         transition: 0.25s;
         margin-right: -5px;
     }
     99% {
-        width: 470px;
+        width: 355px;
         border-right: 1px solid #ff3392;
         margin-right: -1px;
     }
     100% {
-        width: 470px;
+        width: 355px;
         border-right: none;
         transition: 0.25s;
         margin-right: none;
+    }
+}
+
+@media only screen and (max-device-width: 285px) {
+    .typea {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        h1 {
+            animation: none;
+            overflow: hidden;
+
+            border-right: none;
+            width: auto;
+
+            font-size: 17px !important;
+        }
+    }
+}
+
+@media only screen and (max-device-width: 360px) {
+    @keyframes typea {
+        0% {
+            width: 0%;
+            transition: 0.25s;
+            border-right: 1px solid #ff3392;
+            margin-right: -1px;
+        }
+        30% {
+            transition: 0.25s;
+            border-right: 40px solid #ff3392;
+            margin-right: -40px;
+        }
+        90% {
+            width: 280px;
+            border-right: 5px solid #ff3392;
+            transition: 0.25s;
+            margin-right: -5px;
+        }
+        99% {
+            width: 280px;
+            border-right: 1px solid #ff3392;
+            margin-right: -1px;
+        }
+        100% {
+            width: 280px;
+            border-right: none;
+            transition: 0.25s;
+            margin-right: none;
+        }
+    }
+
+    .typea {
+        h1 {
+            font-size: 20px;
+        }
     }
 }
 </style>
