@@ -67,7 +67,7 @@ export default {
         <div class="spacer-small"></div>
         <h3>Socials</h3>
 
-        The socials are in the <a target="_blank" href="https://next.layreboi.me/about">LayreBoi Next</a> website. <!-- NEXT mode -->
+        The socials are in the <a target="_blank" href="https://next.layreboi.me">LayreBoi Next</a> website. <!-- NEXT mode -->
         <br>You can also visit my <a target="_blank" href="https://www.youtube.com/channel/UCzN4nVLbjXdGXMaTfS1BVzg">YouTube channel</a> and my <a target="_blank" href="https://gamejolt.com/@xthedrew">GameJolt</a> account!
         
         <div class="spacer-small"></div>

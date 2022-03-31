@@ -130,18 +130,18 @@ var faqs:any = [
         margin-right: -40px;
     }
     90% {
-        width: 355px;
+        width: 358px;
         border-right: 5px solid #ff3392;
         transition: 0.25s;
         margin-right: -5px;
     }
     99% {
-        width: 355px;
+        width: 358px;
         border-right: 1px solid #ff3392;
         margin-right: -1px;
     }
     100% {
-        width: 355px;
+        width: 358px;
         border-right: none;
         transition: 0.25s;
         margin-right: none;

@@ -43,7 +43,7 @@ To run the website in development mode, run the command in your terminal:
 
 --------------------
 ### Credits
-- **Programmer:** xthedrew/LayreBoi
+- **Programmer & designer:** xtdrew/LayreBoi
 
 ---------------------
 ###### XTDREW README UPDATED 01/21/2022
