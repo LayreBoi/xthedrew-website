@@ -131,6 +131,10 @@ body::-webkit-scrollbar-thumb {
   transition: var(--transition-mode);
 }
 
+body {
+  height: 100vh;
+}
+
 body, #app {
   margin: 0;
 
@@ -138,7 +142,6 @@ body, #app {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   background-color: var(--color-bg);
-  height: 100vh;
   overflow: overlay;
   transition: var(--transition-mode);
 
