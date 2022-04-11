@@ -10,7 +10,7 @@ const config = {
 interface PJLIST {
     name: string,
     type: string,
-    cover: `https://${string}` | `http://${string}`
+    cover: `https://${string}` | `http://${string}`,
     lang: string,
     link: `https://${string}` | `http://${string}`
 }
