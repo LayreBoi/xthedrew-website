@@ -37,7 +37,7 @@ var faqs:any = [
                 "MBO: Medion MS-7728 v2.0<br>"+
                 "RAM: 12 GB DDR3 1333MHz<br>"+
                 "GPU: MSI GeForce GTX 960 4G<br>"+
-                "PSU: FSP Group ???, 400W<br>"+
+                "PSU: be quiet! System Power 9, 600W<br>"+
                 "OS: Windows Pro Edition, 64 bit<br>"+
                 "Boot mode: UEFI (formerly Legacy)<br>"+
                 "BIOS: AMI E7728MLN.208, 08/15/2011<br><br>"+
