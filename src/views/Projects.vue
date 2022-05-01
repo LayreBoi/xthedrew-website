@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { projectlist } from '../config';
 
-const proj:any[] = projectlist;
+const proj: any[] = projectlist;
 </script>
 
 <template>
-    <div> <!-- To avoid problems with transitions -->
+    <div class="pagecont_Projects">
+        <!-- To avoid problems with transitions -->
         <div class="headds">
             <div class="wtf">
                 <p>Select projects of mine:</p>
@@ -24,17 +25,25 @@ const proj:any[] = projectlist;
 </template>
 
 <style scoped lang="scss">
-div {
+.pagecont_Projects {
+    //background-color: #eee;
+    padding: 18px;
+    border-radius: 18px;
+
     .headds {
         // width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         overflow: hidden;
+
+        // border-radius: 18px 18px 9px 9px;
+        //background: #eee;
         // k that didn't work, but too tired to fix it
         .wtf {
             width: 185px;
             text-align: center;
+
             // background-color: #eee;
             p {
                 animation-name: typea;
@@ -57,6 +66,7 @@ div {
             }
         }
     }
+
     .projectlist {
         display: flex;
         gap: 10px;
@@ -75,37 +85,44 @@ div {
 
         transform: translateY(100%);
         opacity: 0;
+
         .projectitem {
             .projectcover {
                 width: 200px;
                 height: 200px;
+
                 .pjtext {
                     border-radius: 9px;
                     backdrop-filter: blur(10px);
                     width: 100%;
                 }
             }
+
             width: 200px;
             height: 200px;
             border-radius: 9px;
             overflow: hidden;
             text-decoration: none;
         }
+
         .projectitem:hover {
             transform: scale(1.05);
         }
     }
 }
+
 @keyframes onOpening003 {
     0% {
         opacity: 0;
         transform: translateY(100%);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 @keyframes typea {
     0% {
         width: 0%;
@@ -113,22 +130,26 @@ div {
         border-right: 1px solid #ff3392;
         margin-right: -1px;
     }
+
     30% {
         transition: 0.25s;
         border-right: 40px solid #ff3392;
         margin-right: -40px;
     }
+
     90% {
         width: 185px;
         border-right: 5px solid #ff3392;
         transition: 0.25s;
         margin-right: -5px;
     }
+
     99% {
         width: 185px;
         border-right: 1px solid #ff3392;
         margin-right: -1px;
     }
+
     100% {
         width: 185px;
         border-right: none;
@@ -139,22 +160,29 @@ div {
 </style>
 
 <style lang="scss">
-div {
+.pagecont_Projects {
+    transition: var(--transition-mode);
+    background-color: var(--color-bg);
+
     .headds {
-        background-color: var(--color-bg);
+        //background-color: var(--color-bg);
         transition: var(--transition-mode);
     }
+
     .projectlist {
         .projectitem {
             background-color: var(--color-fg);
+
             .projectcover {
                 .pjtext {
                     background-color: #66666655;
                     color: white;
                 }
             }
+
             transition: var(--transition-mode);
         }
+
         .projectitem:hover {
             transition: var(--transition-mode);
         }

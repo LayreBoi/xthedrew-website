@@ -11,12 +11,13 @@ export default defineConfig({
   ],
   base: '.',
   server: {
-    host: true,
+    host: '0.0.0.0',
     port: 80
   },
   build: {
     sourcemap: false,
-    cssCodeSplit: false}
+    cssCodeSplit: false
+  }
   // },
   // publicDir: '/'
 })

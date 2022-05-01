@@ -1,139 +1,104 @@
 <script setup lang="ts">
-import themeService from './services/ThemeService';
+// Load configuration
+import config from './config';
 
-const script = new (class {
-  // The <body>
-  private app: HTMLBodyElement = document.getElementsByTagName('body')[0]!;
+// Get the #app element.
+// Make sure you use if statement before using this one to avoid object is probably null error
+const app = document.getElementsByTagName('body')[0];
 
-  // Run
-  constructor() {
-    if (!localStorage.getItem('thememode')) localStorage.setItem('thememode', 'light');
+// If user visits for the first time, set the theme mode to light
+if (!localStorage.getItem('thememode')) {
+  localStorage.setItem('thememode', 'light');
+}
 
-    console.log(`%c Yo, hold up!`, 'font-size: 32px; font-weight: bolder; color: #ff3392');
-    console.log(`%cWhat's up, curious developer? I've noticed you've opened the developer tools. If you're curious how this website is made, you can check out in my open-source repository at https://github.com/layreboi/xthedrew-website`, 'color: #171717');
+// Light theme and Dark theme configuration
+const lightcol = {
+    colorfg: '#eee',
+    colorbg: 'white',
+    colortx: 'black',
+    logo: config.logo.black
+}
+const darkcol = {
+    colorfg: '#222222',
+    colorbg: 'black',
+    colortx: 'white',
+    logo: config.logo.white
+}
 
-    this.app.style.cssText = themeService.getCSS();
-  }
+var maxwidth:number = config.maxwidth;
+var darkmode:boolean = localStorage.getItem('thememode') == 'light' ? false : true;
+var vertical:boolean = window.innerWidth < maxwidth;
+var devwidth:number = window.innerWidth;
 
-  // Switch the theme
-  public themeSwitcher(): void {
-    themeService.switchTheme();
-    this.app.getElementsByClassName('tmc')![0].innerHTML = themeService.darkMode ? 'L' : 'D';
-    this.app.style.cssText = themeService.getCSS();
-  }
-})();
-</script>
+// Make the website dynamic
+window.onresize = function() {
+  devwidth = window.innerWidth;
 
-<script lang="ts">
-import transHeader from './services/HeaderTransparent';
-import themeSvc from './services/ThemeService';
-const body = document.getElementsByTagName('body')[0];
+  if (devwidth < maxwidth) vertical = true;
+  else vertical = false;
 
-export default {
-  watch: {
-    $route(to: any, from: any) {
-      console.log('Path changed!');
-      transHeader.setCSS(
-        to.path == '/'
-      );
-      themeSvc.reloadTheme();
-      body!.style.cssText = themeSvc.getCSS();
-    }
+  if (app) app.style.cssText = loadTheme() + `--vertmode: ${vertical ? '95' : '80'}%;`;
+}
+
+// Update the button after theme change
+function updateButton() {
+  if (app) {
+    const tbutton = app.getElementsByClassName('tmc');
+
+    if (tbutton) tbutton[0].innerHTML = darkmode ? 'L' : 'D';
   }
 }
+
+// Update the theme
+function changecolormode() {
+  darkmode = !darkmode;
+  localStorage.setItem('thememode', darkmode ? 'dark' : 'light');
+  if (app) app.style.cssText = loadTheme();
+  updateButton();
+}
+
+// Update the CSS text in the #app element
+function loadTheme(): string {
+  var curcol = localStorage.getItem('thememode');
+  let currentcol = lightcol;
+  if (curcol == 'dark') {
+    currentcol = darkcol;
+  }
+
+  return  `--color-bg: ${currentcol.colorbg};`+
+          `--color-fg: ${currentcol.colorfg};`+
+          `--color-tx: ${currentcol.colortx};`+
+          // `--xtdrew-lg: url('${currentcol.logo}');`+
+          // `--maxdevwidth: ${config.maxwidth};`+
+          `--invert-xtd: invert(${darkmode ? 1 : 0});`
+}
+
+if (app) app.style.cssText = loadTheme();
+
+// Notice users opening devtools
+console.log(`%c Yo, hold up!`, 'font-size: 32px; font-weight: bolder; color: #ff3392');
+console.log(`%cWhat's up, curious developer? I've noticed you've opened the developer tools. If you're curious how this website is made, you can check out in my open-source repository at https://github.com/layreboi/xthedrew-website`, 'color: #171717');
 </script>
 
 <template>
-  <Particles id="background-part" :options="{
-    background: {
-      color: {
-        //value: currentcol.colorbg,
-        value: '#FFFFFF',
-        opacity: 0.5
-      }
-    },
-    fpsLimit: 30,
-    particles: {
-      //color: currentcol.colorfg
-      color: {
-        //value: currentcol.colortx,
-        value: '#222222',
-        opacity: 0.5
-      },
-      links: {
-        //color: currentcol.colorfg,
-        //color: currentcol.colortx,
-        color: '#222222',
-        distance: 150,
-        enable: true,
-        opacity: 0.5,
-        width: 1
-      },
-      move: {
-        direction: 'none',
-        enable: true,
-        outMode: 'bounce',
-        random: false,
-        speed: 1,
-        straight: false,
-        warp: true
-      },
-      number: {
-        density: {
-          enable: true,
-          value_area: 800
-        },
-        value: 80
-      },
-      opacity: {
-        value: 0.75
-      },
-      shape: {
-        type: 'circle'
-      },
-      size: {
-        random: true,
-        value: 3
-      }
-    },
-    detectRetina: true
-  }" />
   <div class="container">
-    <button v-on:click="script.themeSwitcher()" class="tmc" v-html="themeSvc.darkMode ? 'L' : 'D'"></button>
+    <button v-on:click="changecolormode()" class="tmc" v-html="darkmode ? 'L' : 'D'"></button>
     <header>
       <router-link to="/" class="navLinks">
-        <svg class="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="316"
-          height="208" viewBox="0 0 316 208">
-          <defs>
-            <clipPath id="b">
-              <rect width="316" height="208" />
-            </clipPath>
-          </defs>
-          <g id="a" clip-path="url(#b)">
-            <path
-              d="M209.489,131.094V18.466h-23.1V131.094H165.352V18.466H144.708l-21.1,47.081,26.285,58.647,3.092,6.872h-.013l.013.028H0l.013-.028H0L29.364,65.547,0,.028H.013L0,0H246.078q70.085,0,70.085,63.9,0,30.351-19.444,48.771t-52.143,18.421Zm20.946-18.375h16.792q22.183,0,34.511-12.615T294.068,64.45q0-45.984-46.045-45.984H230.435v94.253ZM62.517,58.984l2,4.384v4.358l-2.061,4.52L44.441,111.988H108.53L88.467,67.726V63.368L108.53,19.106H44.441Z"
-              transform="translate(0 38.453)" fill="#000" />
-          </g>
-        </svg>
+        <svg class="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="316" height="208" viewBox="0 0 316 208"><defs><clipPath id="b"><rect width="316" height="208"/></clipPath></defs><g id="a" clip-path="url(#b)"><path d="M209.489,131.094V18.466h-23.1V131.094H165.352V18.466H144.708l-21.1,47.081,26.285,58.647,3.092,6.872h-.013l.013.028H0l.013-.028H0L29.364,65.547,0,.028H.013L0,0H246.078q70.085,0,70.085,63.9,0,30.351-19.444,48.771t-52.143,18.421Zm20.946-18.375h16.792q22.183,0,34.511-12.615T294.068,64.45q0-45.984-46.045-45.984H230.435v94.253ZM62.517,58.984l2,4.384v4.358l-2.061,4.52L44.441,111.988H108.53L88.467,67.726V63.368L108.53,19.106H44.441Z" transform="translate(0 38.453)" fill="#000"/></g></svg>
       </router-link>
       <nav>
-        <router-link to="/projects" class="navLinks">
-          <div class="navItem">Projects</div>
-        </router-link>
-        <router-link to="/faq" class="navLinks">
-          <div class="navItem">FAQ</div>
-        </router-link>
-        <router-link to="/about" class="navLinks">
-          <div class="navItem">About</div>
-        </router-link>
+        <router-link to="/projects" class="navLinks"><div class="navItem">Projects</div></router-link>
+        <router-link to="/faq" class="navLinks"><div class="navItem">FAQ</div></router-link>
+        <router-link to="/about" class="navLinks"><div class="navItem">About</div></router-link>
       </nav>
     </header>
     <div class="body">
-      <router-view v-slot="{ Component }">
-        <transition name="fade" mode="out-in">
-          <component :is="Component" />
-        </transition>
-      </router-view>
+        <router-view v-slot="{ Component }">
+          <transition name="fade" mode="out-in">
+            <component :is="Component" />
+          </transition>
+        </router-view>
     </div>
     <!-- <span class="copyright">&copy; 2022 xtdrew</span> -->
   </div>
@@ -170,8 +135,7 @@ body {
   height: 100vh;
 }
 
-body,
-#app {
+body, #app {
   margin: 0;
 
   -webkit-font-smoothing: antialiased;
@@ -190,8 +154,7 @@ body,
   transition: var(--transition-mode);
 }
 
-.spoiler:hover,
-.spoiler:focus {
+.spoiler:hover, .spoiler:focus {
   color: var(--color-tx);
   transition: var(--transition-mode);
 }
@@ -224,58 +187,31 @@ body,
   transition: var(--transition-mode);
 }
 
-#background-part {
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-
-  //filter: var(--invert-xtd);
-  canvas {
-    filter: var(--invert-xtd);
-    transition: var(--transition-mode);
-    opacity: var(--hide-bg);
-  }
-
-  opacity: 0;
-
-  animation-name: background_part_fade;
-  animation-duration: 1s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-
 .container {
   color: var(--color-tx);
   background-color: var(--color-bg);
   width: 100%;
   height: 100vh;
   transition: var(--transition-mode);
-  z-index: 10;
-
   .body {
     position: absolute;
     top: 110px;
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
-
     @media only screen and (max-device-width: 800px) {
       width: 95%;
     }
-
     display: flex;
     flex-direction: column;
     // justify-content: center;
     align-items: center;
     height: calc(100vh - 110px);
-
     a {
       color: #ff3392;
       text-decoration: none;
     }
   }
-
   .tmc {
     width: 50px;
     height: 50px;
@@ -292,36 +228,30 @@ body,
     -webkit-tap-highlight-color: transparent;
     z-index: 99;
   }
-
   .tmc:hover {
     transition: var(--transition-mode);
     transform: scale(1.1);
     cursor: pointer;
   }
-
   .tmc:active {
     transition: var(--transition-mode);
     transform: scale(1.2);
   }
-
   header {
     display: flex;
     align-items: center;
     width: 80%;
-
     @media only screen and (max-device-width: 800px) {
       width: 95%;
     }
-
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
     height: 60px;
-    background: var(--headerbg);
+    background-color: var(--color-bg);
     transition: var(--transition-mode);
     z-index: 100;
     border-radius: 0 0 9px 9px;
-
     nav {
       position: absolute;
       right: 2px;
@@ -329,12 +259,10 @@ body,
       display: flex;
       flex-direction: row;
       gap: 10px;
-
       .navLinks {
         text-decoration: none;
         color: var(--color-tx);
         transition: var(--transition-mode);
-
         .navItem {
           transition: var(--transition-mode);
           cursor: pointer;
@@ -342,7 +270,7 @@ body,
           border-radius: 4.5px;
           -webkit-tap-highlight-color: transparent;
         }
-
+       
         @media (hover: hover) and (pointer: fine) {
           .navItem:hover {
             transition: var(--transition-mode);
@@ -351,14 +279,12 @@ body,
             // box-shadow: 0px 2px 2px #22222222;
           }
         }
-
         .navItem:active {
           transition: var(--transition-mode);
           transform: scale(1.2);
         }
       }
     }
-
     .logo {
       // background-image: var(--xtdrew-lg);
       width: 51.39px;
@@ -369,7 +295,6 @@ body,
       transform: scale(1.0);
       filter: var(--invert-xtd);
     }
-
     @media (hover: hover) and (pointer: fine) {
       .logo:hover {
         transform: scale(1.05);
@@ -377,7 +302,6 @@ body,
         cursor: pointer;
       }
     }
-
     .logo:active {
       transition: var(--transition-mode);
       transform: scale(1.1);
@@ -387,15 +311,5 @@ body,
 
 .mulish {
   font-family: 'Mulish', Avenir, Helvetica, Arial, sans-serif;
-}
-
-@keyframes background_part_fade {
-  0% {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
 }
 </style>

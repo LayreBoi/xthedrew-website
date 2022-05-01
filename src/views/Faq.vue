@@ -47,7 +47,7 @@ var faqs:any = [
 </script>
 
 <template>
-    <div> <!-- To avoid problems with transitions -->
+    <div class="pagecont_FAQ"> <!-- To avoid problems with transitions -->
         <div class="typea"><h1>Frequently Asked Questions</h1></div>
         <div class="spacer-small"></div>
         <div class="faqboxes">
@@ -64,6 +64,10 @@ var faqs:any = [
 </template>
 
 <style scoped lang="scss">
+.pagecont_FAQ {
+    border-radius: 18px;
+}
+
 .faqboxes {
     .faqboxitem {
         border-radius: 9px;
@@ -207,6 +211,9 @@ var faqs:any = [
 </style>
 
 <style lang="scss">
+.pagecont_FAQ {
+    background-color: var(--color-bg);
+}
 .faqboxes {
     .faqboxitem {
         transition: var(--transition-mode);

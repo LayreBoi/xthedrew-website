@@ -5,7 +5,7 @@ Hi, and welcome to the open-source repository of my new rewritten [website](http
 
 ### Frequently Asked Questions
 ##### Who is xthedrew?
-xthedrew (or xtdrew) is a programmer who develops frontend and backend programs and games (currently in Haxe). He is also known as a music artist named [LayreBoi](https://layreboi.me).
+xtdrew (or xthedrew) is a programmer who develops web applications and games (currently in Haxe). He is also known as a music artist named [LayreBoi](https://next.layreboi.me).
 
 ##### Where did you get your name?
 I've got my name xthedrew a long time ago, let's say, since 2016. My name was chosen by my older sister after she made an account for a popular [rhythm game](https://osu.ppy.sh/users/8132588) for me. After a while, it hasn't been used until a few months after LayreBoi, where I reused the name as a developer name.
@@ -37,7 +37,7 @@ or
 --------------------
 
 ### Running while developing
-To run the website in development mode, run the command in your terminal:
+To run the website in development mode, run this command in your terminal:
 
 > npm run dev
 
@@ -46,4 +46,4 @@ To run the website in development mode, run the command in your terminal:
 - **Programmer & designer:** xtdrew/LayreBoi
 
 ---------------------
-###### XTDREW README UPDATED 01/21/2022
+###### XTDREW README UPDATED 04/27/2022

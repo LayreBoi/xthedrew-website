@@ -53,7 +53,7 @@ export default {
 </script>
 
 <template>
-    <div> <!-- To avoid problems with transitions -->
+    <div class="pagecont_About"> <!-- To avoid problems with transitions -->
         <h3>Biography</h3>
         <div class="field">
             xtdrew (or xthedrew) is a young programmer from Austria, developing websites and games. He developed several web applications and discord bots such as Amih1ri, Lillie, Amber and Kazane. He also known as a music artist called LayreBoi.
@@ -131,6 +131,11 @@ export default {
 </style>
 
 <style lang="scss">
+.pagecont_About {
+    border-radius: 18px;
+    background-color: var(--color-bg);
+    transition: var(--transition-mode);
+}
 .field {
     border: var(--color-fg) dashed 2px;
     border-radius: 9px;
