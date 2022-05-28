@@ -172,6 +172,7 @@ const proj: any[] = projectlist;
     .projectlist {
         .projectitem {
             background-color: var(--color-fg);
+            border: 2px solid var(--color-fg);
 
             .projectcover {
                 .pjtext {

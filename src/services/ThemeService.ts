@@ -57,7 +57,7 @@ class ThemeService {
                 `--color-tx: ${this.currnCol.colortx};`+
                 `--invert-xtd: invert(${this.darkMode ? '1' : '0'});`+
                 `--headerbg: ${headerTransparent.getCSS() ? 'none' : this.currnCol.colorbg};`+
-                `--hide-bg: ${!headerTransparent.getCSS() ? '0' : '1'};`
+                `--hide-bg: ${!headerTransparent.getCSS() ? '0' : '0.75'};`
     }
 }
 

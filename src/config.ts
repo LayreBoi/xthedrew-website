@@ -31,10 +31,17 @@ export const projectlist:PJLIST[] = [
         link: 'https://gamejolt.com/games/gemashy/647186'
     },
     {
-        name: `LayreBoi Next`,
+        name: `LayreBoi NEXT`,
         type: `Website`,
         cover: `https://media.discordapp.net/attachments/833015294313496616/943253434952482867/Untitled171_20220215221041.png?width=400&height=400`,
         lang: `vue-ts`,
         link: 'https://next.layreboi.me'
+    },
+    {
+        name: `LAYRE.LOL Linktree`,
+        type: `Website`,
+        cover: `https://media.discordapp.net/attachments/833015294313496616/980251649664761876/unknown.png?width=400&height=400`,
+        lang: `vue-ts`,
+        link: 'https://www.layre.lol'
     }
 ]
