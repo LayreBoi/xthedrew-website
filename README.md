@@ -8,7 +8,7 @@ Hi, and welcome to the open-source repository of my new rewritten [website](http
 xtdrew (or xthedrew) is a programmer who develops web applications and games (currently in Haxe). He is also known as a music artist named [LayreBoi](https://next.layreboi.me).
 
 ##### Where did you get your name?
-I've got my name xthedrew a long time ago, let's say, since 2016. My name was chosen by my older sister after she made an account for a popular [rhythm game](https://osu.ppy.sh/users/8132588) for me. After a while, it hasn't been used until a few months after LayreBoi, where I reused the name as a developer name.
+I've got my name xthedrew a long time ago, since 2016. My name was chosen by my older sister after she made an account for a popular [rhythm game](https://osu.ppy.sh/users/8132588) for me. After a while, it hasn't been used until a few months after LayreBoi, where I reused the name as a developer name.
 
 ##### Why did you choose xthedrew instead of LayreBoi?
 I didn't feel like using LayreBoi as a developer name, so I kept it just a music artist name.
@@ -46,4 +46,4 @@ To run the website in development mode, run this command in your terminal:
 - **Programmer & designer:** xtdrew/LayreBoi
 
 ---------------------
-###### XTDREW README UPDATED 04/27/2022
+###### XTDREW README UPDATED 06/13/2022
