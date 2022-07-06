@@ -48,4 +48,4 @@ To run the website in development mode, run this command in your terminal:
 - **Programmer & designer:** xtdrew/LayreBoi
 
 ---------------------
-###### XTDREW README UPDATED 06/13/2022
+###### XTDREW README UPDATED 07/06/2022
