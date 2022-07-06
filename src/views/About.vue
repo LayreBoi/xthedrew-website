@@ -61,7 +61,7 @@ export default {
         <div class="spacer-small"></div>
         <h3>Contact</h3>
         <div class="field">
-            <span class="boldtext">Email:</span> contact@layreboi.me<br>
+            <span class="boldtext">Email:</span> <a href="mailto:layreboi@mailayre.com">layreboi@mailayre.com</a><br>
             <span class="boldtext">Discord:</span> LayreBoi_xthedrew#7646
         </div>
         <div class="spacer-small"></div>

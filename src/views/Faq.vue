@@ -12,7 +12,7 @@ var faqs:any = [
     },
     {
         question: "How are they pronounced?",
-        answer: "xthedrew: Ex-the-drew<br>LayreBoi: La-ih-reh-boy"
+        answer: "xthedrew: Ex-the-drew<br>LayreBoi: Lie-reh-boy"
     },
     {
         question: "How should I call you?",
@@ -57,7 +57,7 @@ var faqs:any = [
             </div>
         </div>
         <div class="spacer-small"></div>
-        <p>If you have more questions, simply contact me by Discord or by email (contact@layreboi.me).</p>
+        <p>If you have more questions, simply contact me by Discord or by email (<a href="mailto:layreboi@mailayre.com">layreboi@mailayre.com</a>).</p>
         <div class="spacer-small"></div>
         <div class="spacer-mobile"></div>
     </div>
