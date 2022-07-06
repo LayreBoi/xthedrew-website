@@ -1,6 +1,8 @@
 # Welcome to the xthedrew website
 Hi, and welcome to the open-source repository of my new rewritten [website](https://xtdrew.xyz)! This website is made with vite (vue-ts).
 
+###### Note: This is an outdated website. New repository is [here](https://github.com/layreboi/xtdrew-website)! This version has been moved to `legacy.xtdrew.xyz`.
+
 -------------
 
 ### Frequently Asked Questions
